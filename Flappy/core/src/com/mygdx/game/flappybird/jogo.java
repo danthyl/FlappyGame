@@ -45,24 +45,24 @@ public class jogo extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		batch.begin(); //inicializa a execução
+		batch.begin();                                            //inicializa a execução
 
-		if(variacao > 3)       //mexe com a variação para mudar a animação
+		if(variacao > 3)                                         //mexe com a variação para mudar a animação
 			variacao = 0;
 
-		boolean toqueTela = Gdx.input.justTouched(); //verifica se tocou na tela
+		boolean toqueTela = Gdx.input.justTouched();            //verifica se tocou na tela
 
-		if(Gdx.input.justTouched()){                 //impulsiona pra cima
+		if(Gdx.input.justTouched()){                           //impulsiona pra cima
 			gravidade = -25;
 		}
 
-		if(posicaoInicialVerticalPassaro > 0 || toqueTela)                              //diminui a gravidade ao tocar na tela
+		if(posicaoInicialVerticalPassaro > 0 || toqueTela)                               //associal o touch com a gravidade
 			posicaoInicialVerticalPassaro = posicaoInicialVerticalPassaro - gravidade;
 
-		batch.draw(fundo, 0, 0, larguraDispositivo, alturaDispositivo);    //instancia o fundo no celular utilizando o tamanho da tela passado como paramentro
-		batch.draw(passaros[(int) variacao], 30, posicaoInicialVerticalPassaro);  //instacia o passaro no celular com a posição dele
+		batch.draw(fundo, 0, 0, larguraDispositivo, alturaDispositivo);           //instancia o fundo no celular utilizando o tamanho da tela passado como paramentro
+		batch.draw(passaros[(int) variacao], movimentaX, posicaoInicialVerticalPassaro);     //instacia o passaro no celular com a posição dele
 
-		variacao += Gdx.graphics.getDeltaTime() * 10;      //pega os graficos do gdx e associa com a variaçao
+		variacao += Gdx.graphics.getDeltaTime() * 10;                                  //pega os graficos do gdx e associa com a variaçao
 
 		gravidade++;   //incrementa a gravidade
 		movimentaY++;  //incrementa a movimentação no eixo Y
