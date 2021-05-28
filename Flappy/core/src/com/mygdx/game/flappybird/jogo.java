@@ -170,9 +170,13 @@ public class jogo extends ApplicationAdapter {
         batch.draw(fundo, 0, 0, larguraDispositivo, alturaDispositivo);          //instancia o fundo no celular utilizando o tamanho da tela passado como parametro.
         batch.draw(passaros[(int) variacao], 50, posicaoInicialVerticalPassaro);    //instacia o passaro no celular com a posição dele e animação.
 
-        batch.draw(canoBaixo, posicaoCanoHorizontal -100, alturaDispositivo/2 - canoBaixo.getHeight() - espaçoEntreCanos/2 + posicaoCanoVertical);  //instancia o cano na tela com espaço entre eles.
-        batch.draw(canoTopo, posicaoCanoHorizontal -100,alturaDispositivo/2 + espaçoEntreCanos + posicaoCanoVertical);                              //instancia o cano na tela com espaço entre eles.
+        //batch.draw(canoBaixo, posicaoCanoHorizontal -100, alturaDispositivo/2 - canoBaixo.getHeight() - espaçoEntreCanos/2 + posicaoCanoVertical);  //instancia o cano na tela com espaço entre eles.
+        //batch.draw(canoTopo, posicaoCanoHorizontal -100,alturaDispositivo/2 + espaçoEntreCanos + posicaoCanoVertical);                              //instancia o cano na tela com espaço entre eles.
 
+        batch.draw(canoBaixo, posicaoCanoHorizontal, alturaDispositivo / 2 - canoBaixo.getHeight() - espacoEntreCanos / 2 + posicaoCanoVertical);
+		batch.draw(canoTopo, posicaoCanoHorizontal, alturaDispositivo / 2 + espacoEntreCanos / 2 + posicaoCanoVertical);
+		
+        
         textoPontuacao.draw(batch,String.valueOf(pontos), larguraDispositivo / 2, alturaDispositivo - 100);  //n tem batch no começo pq esta vindo de um bitmapFont e desenha a pontuação na tela.
 
         if(estadoJogo == 2){                 //se o estado do jogo for 2
